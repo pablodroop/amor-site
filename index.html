@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@400;700&display=swap" rel="stylesheet">
+    <title>Botão Escorregadio com Slide de Imagens</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            position: relative;
+            flex-direction: column;
+            font-family: "Cherry Swash", serif;
+            font-weight: 400;
+            font-style: normal;
+            /* Permite que os elementos sejam empilhados verticalmente */
+        }
+
+        .cherry-swash-regular {
+            font-family: "Cherry Swash", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .cherry-swash-bold {
+            font-family: "Cherry Swash", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+
+        #btN,
+        #btS,
+        #pergunta {
+            padding: 20px;
+            font-size: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0.625rem;
+            position: relative;
+            z-index: 2;
+            /* flex-direction: column; */
+            text-align: center;
+            /* font-family: "Cherry Swash", serif; */
+            font-weight: 700;
+            font-style: normal;
+            /* Centraliza o texto */
+        }
+
+        #pergunta {
+            font-size: 30px;
+            /* Tamanho da fonte da pergunta */
+            margin-bottom: -10px;
+            /* Espaçamento negativo para posicionar a pergunta sobre os botões */
+            color: white;
+            /* Cor do texto da pergunta */
+            background-color: #007BFF;
+            /* Fundo igual ao dos botões */
+            padding: 15px;
+            /* Espaçamento interno */
+            border-radius: 5px;
+            /* Bordas arredondadas */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            /* Sombras para adicionar profundidade */
+            z-index: 2;
+            /* Garante que a pergunta fique acima dos botões */
+            position: relative;
+
+            /* Para manter a posição em relação aos botões */
+        }
+
+        .button-container {
+            display: flex;
+            /* Adiciona um contêiner flexível para os botões */
+            gap: 10px;
+            /* Espaçamento entre os botões */
+
+        }
+
+        .slide-container {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.768);
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .slides {
+            display: none;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .music {
+            position: absolute;
+        }
+
+        .mensagem {
+            gap: .1875rem;
+            position: absolute;
+            bottom: 20px;
+            /* A posição do fundo da caixa */
+            left: 50%;
+            width: 90%;
+
+
+            /* Centraliza horizontalmente */
+            transform: translateX(-50%);
+            /* Ajusta a centralização */
+            background-color: rgba(254, 254, 254, 0.516);
+            /* Fundo claro com um pouco de transparência */
+            border-radius: 15px;
+            /* Cantos arredondados */
+            padding: 5px 2px;
+            color: #000000;
+            font: 900;
+            /* Espaçamento interno */
+            box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.368);
+            /* Sombra ao redor da caixa */
+            z-index: 2;
+            /* Garante que a mensagem fique acima de outros elementos */
+            display: flex;
+            /* Disposição em linha */
+            align-items: center;
+            /* Alinhamento vertical */
+            font-size: 29px;
+            /* Tamanho da fonte */
+        }
+
+        .coracao {
+            font-size: 36px;
+            /* Tamanho do coração */
+            animation: pulse 1s infinite;
+            /* Animação pulsante */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* html,
+        body {
+            overflow: hidden;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div id="pergunta">Você me ama? sua estressadinha &#10084</div> <br />
+
+    <div class="button-container">
+        <button id="btS">Sim</button>
+        <button id="btN">NÃO NUNCA !!</button>
+    </div>
+
+    <div class="slide-container" id="slideContainer">
+        <img class="slides" src="img/Imagem do WhatsApp de 2024-09-16 à(s) 14.58.33_068e7e12.jpg" alt="Imagem 1">
+        <img class="slides" src="img/Imagem do WhatsApp de 2024-09-19 à(s) 20.30.01_81a42f77.jpg" alt="Imagem 2">
+        <img class="slides" src="img/IMG-20240824-WA0006.jpg" alt="Imagem 3">
+        <img class="slides" src="img/IMG-20240824-WA0007.jpg" alt="Imagem 4">
+        <img class="slides" src="img/IMG-20240824-WA0008.jpg" alt="Imagem 5">
+        <img class="slides" src="img/IMG-20240824-WA0009.jpg" alt="Imagem 6">
+        <img class="slides" src="img/IMG-20240824-WA0010.jpg" alt="Imagem 7">
+        <img class="slides" src="img/IMG-20240902-WA0004.jpg" alt="Imagem 8">
+        <img class="slides" src="img/IMG-20240902-WA0005.jpg" alt="Imagem 9">
+        <img class="slides" src="img/IMG-20240902-WA0006.jpg" alt="Imagem 10">
+        <img class="slides" src="img/IMG-20240902-WA0007.jpg" alt="Imagem 11">
+        <img class="slides" src="img/IMG-20240902-WA0009.jpg" alt="Imagem 12">
+        <img class="slides" src="img/IMG-20240902-WA0010.jpg" alt="Imagem 13">
+        <img class="slides" src="img/IMG-20240902-WA0011.jpg" alt="Imagem 14">
+        <img class="slides" src="img/IMG-20240902-WA0012.jpg" alt="Imagem 15">
+        <img class="slides" src="img/IMG-20240902-WA0013.jpg" alt="Imagem 16">
+        <img class="slides" src="img/IMG-20240913-WA0005.jpg" alt="Imagem 17">
+        <img class="slides" src="img/IMG-20240914-WA0002.jpg" alt="Imagem 18">
+        <img class="slides" src="img/IMG-20240914-WA0003.jpg" alt="Imagem 19">
+        <img class="slides" src="img/IMG-20240914-WA0004.jpg" alt="Imagem 20">
+        <img class="slides" src="img/IMG-20240921-WA0001.jpg" alt="Imagem 21">
+        <img class="slides" src="img/IMG-20240922-WA0001.jpg" alt="Imagem 22">
+        <img class="slides" src="img/IMG-20240922-WA0002.jpg" alt="Imagem 23">
+        <img class="slides" src="img/IMG-20240922-WA0003.jpg" alt="Imagem 24">
+        <img class="slides" src="img/IMG-20240922-WA0004.jpg" alt="Imagem 25">
+        <img class="slides" src="img/IMG-20240922-WA0005.jpg" alt="Imagem 26">
+        <img class="slides" src="img/IMG-20240922-WA0006.jpg" alt="Imagem 27">
+        <img class="slides" src="img/IMG-20240922-WA0007.jpg" alt="Imagem 28">
+        <img class="slides" src="img/IMG-20240922-WA0008.jpg" alt="Imagem 29">
+        <img class="slides" src="img/IMG-20240922-WA0009.jpg" alt="Imagem 30">
+        <img class="slides" src="img/IMG-20240922-WA0010.jpg" alt="Imagem 31">
+        <img class="slides" src="img/IMG-20240922-WA0011.jpg" alt="Imagem 32">
+        <img class="slides" src="img/IMG-20240922-WA0012.jpg" alt="Imagem 33">
+        <img class="slides" src="img/IMG-20240922-WA0013.jpg" alt="Imagem 34">
+        <img class="slides" src="img/IMG-20240922-WA0014.jpg" alt="Imagem ">
+        <audio class="music" id="musica" src="mp3/Orgânico - Mirele e Froid - Preta [ Prod. Leo Casa 1 e Leo Ost ].mp3"
+            preload="auto" loop></audio>
+        <p><br /></p>
+        <div class="mensagem">
+            <span></span> Amor da minha vida, Minha estressadinha e comilona <br /> Você mudou minha
+            vida pra melhor feliz 3 meses de namoro VIDA &#10084 &#10084 &#10084 <br /> NUNCA TE TROCAREI POR NEM UMA
+            SEBOSA
+        </div>
+    </div>
+
+    <script>
+        const botaoNao = document.getElementById('btN');
+        const botaoSim = document.getElementById('btS');
+        const p = document.getElementById('pergunta');
+        const slideContainer = document.getElementById('slideContainer');
+        const slides = document.querySelectorAll('.slides');
+        const musica = document.getElementById('musica');
+
+        // Botão escorregadio  
+        botaoNao.addEventListener('mouseover', function () {
+            const x = Math.random() * (window.innerWidth - botaoNao.offsetWidth);
+            const y = Math.random() * (window.innerHeight - botaoNao.offsetHeight);
+            botaoNao.style.position = 'absolute';
+            botaoNao.style.left = x + 'px';
+            botaoNao.style.top = y + 'px';
+        });
+
+        // Lógica para o botão "Sim"  
+        botaoSim.addEventListener('click', function () {
+            // Oculta os botões  
+            botaoSim.style.display = 'none';
+            botaoNao.style.display = 'none';
+            p.style.display = 'none';
+
+            // Exibe o container de slides e toca a música  
+            slideContainer.style.display = 'flex';
+            musica.play();
+
+            let currentSlide = 0;
+
+            // Função para mostrar o slide atual  
+            function showSlide() {
+                slides.forEach((slide, index) => {
+                    slide.style.display = index === currentSlide ? 'block' : 'none';
+                });
+                currentSlide = (currentSlide + 1) % slides.length; // Move para o próximo slide  
+                setTimeout(showSlide, 3000); // Muda o slide a cada 3 segundos  
+            }
+
+            showSlide(); // Inicia a apresentação de slides  
+        });  
+    </script>
+
+</body>
+
+</html>
